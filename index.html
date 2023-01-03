@@ -54,12 +54,25 @@
       function init() {
         createBoxes();
         clicks();
+        reset();
       }
       function createBoxes() {
         for (let i = 0; i < 9; i++) {
           let newBox = makeBox();
           newBox.addToHtml();
         }
+      }
+      
+      function reset() {
+        const elements = document.getElementsByClassName("blocks");
+        while (elements.length > 0) {
+          elements[0].parentNode.removeChild(elements[0]);
+        }
+        id = 0;
+        temp = 1;
+        allBoxes_o = [];
+        allBoxes_x = [];
+        init();
       }
       function clicks() {
         const boxes = document.getElementsByClassName("blocks");
